@@ -28,4 +28,12 @@
         android:gravity="center_horizontal"
         android:text="Edit fragment_home.xml to change the appearance" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start Another Activity with Transition"
+        android:id="@+id/btnStartActivity"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
