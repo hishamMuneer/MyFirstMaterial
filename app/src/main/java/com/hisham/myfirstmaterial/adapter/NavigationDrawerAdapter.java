@@ -1,4 +1,4 @@
-package com.hisham.myfirstmaterial;
+package com.hisham.myfirstmaterial.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -7,11 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.hisham.myfirstmaterial.R;
+import com.hisham.myfirstmaterial.model.NavDrawerItem;
+
 import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by Ravi Tamada on 12-03-2015.
+ * Created by Hisham on 4/16/2015.
  */
 public class NavigationDrawerAdapter extends RecyclerView.Adapter<NavigationDrawerAdapter.MyViewHolder> {
     List<NavDrawerItem> data = Collections.emptyList();

@@ -1,7 +1,6 @@
 package com.hisham.myfirstmaterial;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
@@ -10,14 +9,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.GestureDetector;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+
+import com.hisham.myfirstmaterial.adapter.NavigationDrawerAdapter;
+import com.hisham.myfirstmaterial.model.NavDrawerItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +47,9 @@ public class FragmentDrawer extends Fragment {
 
 
         // preparing navigation drawer items
-        for (int i = 0; i < titles.length; i++) {
+        for (String title : titles) {
             NavDrawerItem navItem = new NavDrawerItem();
-            navItem.setTitle(titles[i]);
+            navItem.setTitle(title);
             data.add(navItem);
         }
         return data;
@@ -114,18 +112,18 @@ public class FragmentDrawer extends Fragment {
                 super.onDrawerSlide(drawerView, slideOffset);
                 toolbar.setAlpha(1 - slideOffset / 2);
             }
-
-            @Override
-            public boolean onOptionsItemSelected(MenuItem item) {
-                if (item != null && item.getItemId() == android.R.id.home) {
-                    if (mDrawerLayout.isDrawerOpen(Gravity.RIGHT)) {
-                        mDrawerLayout.closeDrawer(Gravity.RIGHT);
-                    } else {
-                        mDrawerLayout.openDrawer(Gravity.RIGHT);
-                    }
-                }
-                return super.onOptionsItemSelected(item);
-            }
+            // Untested code for displaying navigation drawer from right. Not working. Had to make the gravity right also, but still din't work.
+//            @Override
+//            public boolean onOptionsItemSelected(MenuItem item) {
+//                if (item != null && item.getItemId() == android.R.id.home) {
+//                    if (mDrawerLayout.isDrawerOpen(Gravity.RIGHT)) {
+//                        mDrawerLayout.closeDrawer(Gravity.RIGHT);
+//                    } else {
+//                        mDrawerLayout.openDrawer(Gravity.RIGHT);
+//                    }
+//                }
+//                return super.onOptionsItemSelected(item);
+//            }
         };
 
         mDrawerLayout.setDrawerListener(mDrawerToggle);
