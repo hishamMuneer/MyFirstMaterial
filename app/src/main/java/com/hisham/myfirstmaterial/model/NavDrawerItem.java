@@ -1,7 +1,7 @@
-package com.hisham.myfirstmaterial;
+package com.hisham.myfirstmaterial.model;
 
 /**
- * Created by NI-PC1 on 4/16/2015.
+ * Created by Hisham on 4/16/2015.
  */
 public class NavDrawerItem {
     private boolean showNotify;
