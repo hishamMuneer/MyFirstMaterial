@@ -2,6 +2,7 @@ package com.hisham.myfirstmaterial.activity;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -9,10 +10,22 @@ import com.hisham.myfirstmaterial.R;
 
 public class DemoActivityForTransition extends ActionBarActivity {
 
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_demo_activity_for_transition);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        if (toolbar != null)
+        {
+            setSupportActionBar(toolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setElevation(0); // or other
+            getSupportActionBar().setTitle("Demo Activity");
+        }
+
     }
 
     @Override
@@ -31,6 +44,11 @@ public class DemoActivityForTransition extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        if(id == android.R.id.home){
+            finish();
             return true;
         }
 
